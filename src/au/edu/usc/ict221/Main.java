@@ -12,8 +12,6 @@ package au.edu.usc.ict221;
  * @author Author2
  */
 
-
-
 public class Main {
 
     public static void main(String[] args) {
@@ -26,9 +24,9 @@ public class Main {
 
         float g_high_score = 0;    // potential to retain the high score (percentage) between game players or sessions
         int g_total_asked = 0;     // we may also wish to record the total number of questions asked in the session
-        int g_cumulative_num_correct = 0;  // potentially may tally the total ansered correctly, not just percent
+        int g_cumulative_num_correct = 0;  // potentially may tally the total answered correctly, not just percent
         float g_percent_correct = 0;   // just the percentage correct in this player session
-        int g_number_correct = 0;    //  initialization may be reducndant, but good habit to initialize as much as possible
+        int g_number_correct = 0;    //  initialization may be redundant, but good habit to initialize as much as possible
 
         // let's play one or more rounds of the math game
 

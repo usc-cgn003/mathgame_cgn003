@@ -82,5 +82,5 @@ public class PlayGame {
                     l_cumulative_num_correct, l_total_asked, l_cumulative_percent_correct, l_high_score);
         }
         return l_cumulative_percent_correct;
-    }
-}
+    }  // End playGame Method
+}  // End PlayGame Class

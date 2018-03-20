@@ -8,7 +8,6 @@ import java.util.Scanner;
  *
  */
 
-
 public class PlayGameRound {
 
     private int l_max_questions;
