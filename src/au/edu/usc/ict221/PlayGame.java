@@ -37,14 +37,12 @@ public class PlayGame {
 
             PlayGameRound GameRound = new PlayGameRound(l_max_questions, l_max_number);
             l_number_correct = GameRound.playGameRound(l_max_questions, l_max_number);
-            System.out.printf("You answered %2d of %2d correctly in GameRound\n",
-                    l_number_correct, l_max_questions);
 
             l_total_asked += l_max_questions;
 
             float l_percent_correct = (float) l_number_correct / (float) l_max_questions * 100;
             if (l_percent_correct >= l_target_percent) {
-                System.out.printf("Congratulations! ");
+                System.out.printf("Congratulations! %3.0f percent target met. ", l_target_percent);
             }
             System.out.printf("You answered %2d of %2d correctly (%3.0f percent)\n",
                     l_number_correct, l_max_questions, l_percent_correct);
@@ -56,7 +54,7 @@ public class PlayGame {
 
             l_seconds_taken = l_round_end_time - l_round_start_time;
 
-            if (l_seconds_taken < 60) {
+            if (l_seconds_taken >= 60) {
                 double l_minutes_taken = l_seconds_taken / 60;
                 System.out.printf("Tame Taken was %2.0f minute(s) and %2.0f seconds\n", l_minutes_taken, l_seconds_taken % 60);
             } else {
@@ -76,7 +74,7 @@ public class PlayGame {
         // if the player only played a single round then it's redundant to display a multi-round total
         if (l_total_asked > l_max_questions) {
             if (l_cumulative_percent_correct >= l_target_percent) {
-                System.out.printf("Congratulations! ");
+                System.out.printf("Congratulations! %3.0f percent target met.\n", l_target_percent);
             }
             System.out.printf("You answered %3d of %3d correctly (%3.0f percent), high score of %3.0f percent\n",
                     l_cumulative_num_correct, l_total_asked, l_cumulative_percent_correct, l_high_score);
