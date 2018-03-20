@@ -6,8 +6,7 @@ public class Question {
     private String l_operator;
     private int l_answer;
 
-    public Question(int a_value1, int a_value2, String a_operator)
-    {
+    public Question(int a_value1, int a_value2, String a_operator) {
         l_value1 = a_value1;
         l_value2 = a_value2;
         l_operator = a_operator;
@@ -17,17 +16,16 @@ public class Question {
      * @method showQuestion prints the Question for the player to read and respond
      */
 
-    public void showQuestion()
-    {
+    public void showQuestion() {
         // Display the question to prompt a response from the user
         System.out.printf("What is %2d %s %2d? ", l_value1, l_operator, l_value2);
 
     }
 
     /**
-     * @method checkAnswer compares the player's response with the expected answer
      * @param response - the player's response to the printed question
      * @return boolean - true if player response matcheds the expected answer
+     * @method checkAnswer compares the player's response with the expected answer
      */
     public boolean checkAnswer(int response) {
 
