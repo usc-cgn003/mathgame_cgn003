@@ -5,6 +5,8 @@ package au.edu.usc.ict221;
 //        import java.util.Random;
 //        import java.util.Scanner;
 
+import java.util.ArrayList;
+
 /**
  * A simple console-based maths quiz for primary school children.
  *

@@ -2,6 +2,22 @@ package au.edu.usc.ict221;
 
 import java.util.Scanner;
 
+/**
+ * Simple math game to test the mathematical skills of a student with a variety of random equations and/or novelty questions.
+
+ * The degree of difficulty and number of questions per round for each game/session is controlled
+ * via parameters passed from the main method to the various classes and methods within the game program.
+
+ * Those parameters are:
+ * MAX_NUMBER - the highest number used in the equation
+ * TARGET_PERCENT - the percentage of correct answers the student/player needs to answer correctly before they are
+ *     acknowledged/congratulated for having shown an acceptable level of mathematical skill.
+ *     MAX_QUESTIONS is used to deine the length of each round of the game in terms of number of questions asked before a score is given.
+ *
+ *  The game calculates the total number of correct answers and displays the number questions asked
+ *   and also the percentage that were answered correctly.
+ */
+
 public class PlayGame {
     private int l_max_questions;
     private int l_max_number;
@@ -42,7 +58,7 @@ public class PlayGame {
 
             float l_percent_correct = (float) l_number_correct / (float) l_max_questions * 100;
             if (l_percent_correct >= l_target_percent) {
-                System.out.printf("Congratulations! %3.0f percent target met. ", l_target_percent);
+                System.out.printf("Congratulations! %3.0f percent first attempt target met.\n", l_target_percent);
             }
             System.out.printf("You answered %2d of %2d correctly (%3.0f percent)\n",
                     l_number_correct, l_max_questions, l_percent_correct);
@@ -56,9 +72,9 @@ public class PlayGame {
 
             if (l_seconds_taken >= 60) {
                 double l_minutes_taken = l_seconds_taken / 60;
-                System.out.printf("Tame Taken was %2.0f minute(s) and %2.0f seconds\n", l_minutes_taken, l_seconds_taken % 60);
+                System.out.printf("Time Taken was %2.0f minute(s) and %2.0f seconds\n", l_minutes_taken, l_seconds_taken % 60);
             } else {
-                System.out.printf("Tame Taken was %2.0f seconds\n", l_seconds_taken);
+                System.out.printf("Time Taken was %2.0f seconds\n", l_seconds_taken);
             }
 
             System.out.print("Play another game?");
@@ -74,7 +90,7 @@ public class PlayGame {
         // if the player only played a single round then it's redundant to display a multi-round total
         if (l_total_asked > l_max_questions) {
             if (l_cumulative_percent_correct >= l_target_percent) {
-                System.out.printf("Congratulations! %3.0f percent target met.\n", l_target_percent);
+                System.out.printf("Congratulations! %3.0f percent first attempt target met.\n", l_target_percent);
             }
             System.out.printf("You answered %3d of %3d correctly (%3.0f percent), high score of %3.0f percent\n",
                     l_cumulative_num_correct, l_total_asked, l_cumulative_percent_correct, l_high_score);
