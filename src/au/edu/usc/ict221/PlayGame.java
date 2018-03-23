@@ -22,7 +22,8 @@ public class PlayGame {
     private int l_max_questions;
     private int l_max_number;
     private float l_target_percent;    // target (whole number) percentage of correct answers through all rounds
-    private int l_number_correct;
+    private String l_operator_list = "";
+    private boolean d_allow_retries = true;
 
     public PlayGame(int a_max_questions, int a_max_number, float a_target_percent) {
         l_max_questions = a_max_questions;
@@ -30,7 +31,19 @@ public class PlayGame {
         l_target_percent = a_target_percent;
     }
 
-    public float playGame(int a_max_questions, int a_max_number, float a_target_percent) {
+    public PlayGame(int a_max_questions, int a_max_number, float a_target_percent, String a_operator_list) {
+        l_max_questions = a_max_questions;
+        l_max_number = a_max_number;
+        l_target_percent = a_target_percent;
+        l_operator_list = a_operator_list;
+    }
+
+    public float playGame(int a_max_questions, int a_max_number, float a_target_percent, String a_operator_list) {
+
+        l_max_questions = a_max_questions;
+        l_max_number = a_max_number;
+        l_target_percent = a_target_percent;
+        l_operator_list = a_operator_list;
 
         float l_high_score = 0;    // target (whole number) percentage of correct answers through all rounds
         int l_total_asked = 0;
@@ -51,13 +64,13 @@ public class PlayGame {
             l_seconds_taken = 0.0;  //first initialisation may be redundant, but code reads better initialized here
             double l_round_start_time = System.currentTimeMillis() / 1000.0;  // Start Time of this round of the game
 
-            PlayGameRound GameRound = new PlayGameRound(l_max_questions, l_max_number);
-            l_number_correct = GameRound.playGameRound(l_max_questions, l_max_number);
+            PlayGameRound GameRound = new PlayGameRound(l_max_questions, l_max_number, l_operator_list, d_allow_retries);
+            l_number_correct = GameRound.playGameRound(l_max_questions, l_max_number, l_operator_list, d_allow_retries);
 
             l_total_asked += l_max_questions;
 
             float l_percent_correct = (float) l_number_correct / (float) l_max_questions * 100;
-            if (l_percent_correct >= l_target_percent) {
+            if (l_total_asked > 1 && l_percent_correct >= l_target_percent) {
                 System.out.printf("Congratulations! %3.0f percent first attempt target met.\n", l_target_percent);
             }
             System.out.printf("You answered %2d of %2d correctly (%3.0f percent)\n",
